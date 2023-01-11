@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load humanize %}
+
+{% block content%}
+    <h1>Productos<h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for itm in productos %}
+            <tr>
+            <th scope="row">{{ itm.id }}</th>
+            <td>{{ itm.name }}</td>
+            <td>{{ itm.tag }}</td>
+            <td>{{ itm.description }}</td>
+            <td>${{ itm.price| intcomma }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>  
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+{% block content%}
+    
+     <div class="card mb-3">
+        {% for itm in prod %}
+            <!--div class="card" style="display:flex;">
+                <div class="card-body" >
+                    <h1 class="card-title">{{itm.name}}</h1>
+                    <p class="card-text">{{itm.description}}</p>
+
+                    <div class="ConteinerImg">
+                        <img src="{{itm.imag.url}}" class="card-img-bottom" alt="...">
+                    </div>
+                    <div class="flex-container">
+                        
+                        <p class="card-text"><medium class="text-muted" style="font-weight: bold; center;width: 120%; float:left;">${{ itm.price }}</medium>
+                        </p><a href="{% url 'carro:agregar' itm.id %}" class="btn btn-info btn-sm" style="center;width: 10%; float:left;">Comprar</a>
+                    </div>
+                </div>
+                
+            </div-->
+            
+            <div class="banner-bootom-w3-agileits py-5">
+                <div class="container py-xl-4 py-lg-2">
+                    
+                    <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">Josete Store</h3>                 
+                    <div class="row">
+                        <!--div class="col-lg-5 col-md-8 single-right-left ">
+                            <div class="grid images_3_of_2">
+                                <img src="{{itm.imag.url}}" class="img-fluid" alt="" draggable="false">
+                            </div>
+                        </div-->
+                        {% if itm.imagenes %}
+                        <div class="col-lg-5 col-md-8 single-right-left ">
+                            <div class="grid images_3_of_2">
+                                <div class="flexslider">
+                                    
+                                    <div class="clearfix"></div>
+                                        <div class="flex-viewport" style="overflow: hidden; position: relative;">   
+                                            <img src="{{itm.imagenes.first.imagen.url}}" class="img-fluid" alt="" draggable="false">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                        </div>                                                   
+                        {% endif %}  
+                        <div class="col-lg-7 single-right-left simpleCart_shelfItem">
+                            <h3 class="mb-3">{{itm.name}}</h3>
+                            <p class="mb-3">
+                                <span class="item_price">${{itm.price}}</span>  <br>     
+                                <span class="item_price">Marca: {{itm.marca}}</span>                         
+                            </p>
+                            <div class="product-single-w3l">
+                                <p class="my-3">{{itm.description}}</p>
+                            </div>
+                            <div class="occasion-cart">
+                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                    <form action="#" method="post">
+                                        <fieldset>
+                                            <a href="{% url 'carro:agregar' itm.id %}" class="btn btn-info btn-sm" style="center;width: 10%; float:left;">Comprar</a>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        {% endfor  %}
+    </div>
+
+{% endblock %}

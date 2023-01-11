@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load humanize %}
+
+{% block content%}
+  <h1>Categorias: {{ cats }}<h1>
+  <div class="li">
+    <!--button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Categorias
+    </button-->
+    <div class="" >
+      {% for x in stf %} 
+        <!--a class="dropdown-item" href="{% url 'categoriasfiltradas' x.id %}">{{x}}</a-->
+        <a  class="ul" href="{% url 'categoriasfiltradas' x.id %}">{{x}}</a>
+      {% endfor %}   
+    </div>
+    
+  </div>
+{% endblock %}

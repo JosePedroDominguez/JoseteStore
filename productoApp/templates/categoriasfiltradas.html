@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load humanize %}
+
+{% block content%}
+ <h1>Productos<h1>
+    
+    <!--{{category}}-->
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>    
+            {% for x in  category  %}
+            <tr>
+            <th scope="row">{{ x.name }}</th>
+            <td>{{ x.tag }}</td>
+            <td>{{ x.description }}</td>
+            <td>${{ x.price | intcomma }}</td>
+            <td>
+                <a href="{% url 'Pantalla de Producto' x.id %}" class="btn btn-primary stretched-link btn-sm " style="center">Ver</a> 
+                <a href="{% url 'carro:agregar' x.id %}" class="btn btn-info btn-sm" style="center">Comprar</a>
+            </td>
+
+                
+            {% endfor %}
+        </tbody>
+    </table>
+    <div>
+        {% include 'paginator.html' %} 
+    </div>  
+{% endblock %}
