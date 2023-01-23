@@ -1,0 +1,66 @@
+
+   
+    <table class="table table-bordered" style="color: black;">
+        <div class="container"> 
+            <h1>Carro de compras</h1>
+            <thead>
+
+                <tr class="text-center">
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Suma</th>
+                    <th>Agregar/Eliminar</th>
+
+
+                </tr>
+
+
+            </thead>
+
+            <tbody>
+                {% if request.session.carro.items %}
+                    {% for key, value in request.session.carro.items %}
+                        <tr class="text-center ">                          
+                            <td>{{value.nombre}}</td>
+                            <td>{{value.cantidad}}</td>
+                            <td>${{value.precio}} </td>
+                            <td>
+                                <a href="{% url 'carro:agregar' value.producto_id %}" class="btn btn-sm btn-success">+</a>
+                                <a href="{% url 'carro:restar' value.producto_id %}" class="btn btn-sm btn-danger">-</a><br/>
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+
+                {% else %}
+                    <tr>
+
+                        <td colspan="3">
+                            <div class="alert alert-alert text-center">
+
+                                Sin productos
+                            </div>
+
+                        </td>
+
+                    </tr>
+                {% endif %}
+            </tbody>
+
+            <tfoot>
+                <tr >
+                    <td colspan="3">
+                        <div><b>Total:$</b>{{total_carro}} </div>
+                    </td>
+                    <td class="text-center">
+                        <a href="#" class="btn btn-sm btn-success">Pagar Compra</a>
+                        <a  href="{% url 'carro:cart_clear' %}" class="btn btn-sm btn-danger">Vaciar Carro</a><br/>
+
+                    </td>
+
+
+                </tr>
+            </tfoot>
+
+        </div>
+    </table>

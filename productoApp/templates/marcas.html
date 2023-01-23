@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load humanize %} 
+{% block content%}
+<h1>Marcas: {{ mars }}<h1>
+<div class="" >
+      {% for x in fab %}
+        <ul id="tagUl" class="clear" style="list-style:none">
+          <li class="tagLi">
+            <a class="" href="{% url 'marcasFiltradas' x.id  %}">{{x}}</a>
+          </li>
+        </ul>      
+      {% endfor %}
+</div>
+
+{% endblock %}
+

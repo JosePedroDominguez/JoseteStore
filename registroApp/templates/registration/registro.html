@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content%}
+    <h1 align="center"> Registrarse</h1>
+
+    {% load crispy_forms_tags %}
+    <div class = "container" style="color: black ">  
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <div class="card-body">
+                    <hr>
+                    <form method="post" action="" style="color: black "> 
+                        {% csrf_token %} 
+                        {{ form | crispy}}
+                        <button type="submit" class="btn btn-success float-center">Crear Usuario</button>       
+                        <a href="{% url 'login' %}"><b>Si ya tiene una cuenta haga click aqui</b></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

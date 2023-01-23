@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load humanize %}
+{% block content%}
+        </br>
+        <div class="container">
+          <div class="row " > 
+          <script>
+            cont=0
+          </script>       
+            {% for itm in entity %} 
+              <div class="col">
+                <div class="card border bg-light" style="width: 18rem;height:auto;">
+                  </br>
+                  {% if itm.imagenes %}
+                  <img src="{{ itm.imagenes.first.imagen.url }}" class="card-img-top  mx-auto d-block" style="max-width: 250px;height: 200px;">
+                  {% endif %}
+                  <div class="card-body">
+                    <h5 class="card-title">{{ itm.name }}</h5>
+                    <h6 class="card-title">{{ itm.marca }}</h6>
+                    <h5 class="card-title">${{itm.price}}</h5>
+                  </div>
+                  <div class="card-footer text-center">
+                    <a href="{% url 'Pantalla de Producto' itm.id %}" class="btn btn-primary stretched-link btn-sm" style="center">Ver</a></hr>
+                    <a href="{% url 'carro:agregar' itm.id %}" class="btn btn-info btn-sm" style="center">Comprar</a>
+                  </div>
+                </div>
+                </br>
+              </div>
+              <script>
+                cont+=1
+                if (cont > 6):
+                  break
+              </script>
+            {% endfor %}
+          </div>
+        </div>
+
+  <div>
+    {% include 'paginator.html' %} 
+  </div> 
+  
+{% endblock %}

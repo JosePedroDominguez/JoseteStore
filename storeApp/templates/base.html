@@ -1,0 +1,147 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+     {% load static  %} 
+
+    <!-- Bootstrap -->
+    <link href="{% static 'storeApp/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+     <!-- Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+     
+
+    <!-- Styles -->
+    <link href="{% static 'storeApp/css/store.css' %} " rel="stylesheet">
+    <!--Sweet alert-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+    <!--a class="navbar-logo" href="#">
+      <img src="media/logo/irMOfh01.svg" >
+    </a-->
+    <p>JoseteStore</p>
+    <div class="container">
+      <span>
+        <!-- logo.png -->
+      </span>
+      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'Home' %}">Inicio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item {% if request.path == '/' %} active {% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Home' %}">Inicio</a>
+          </li>
+          <li class="nav-item px-lg-4 {% if request.path == '/AcercaDe' %} active {% endif %}">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Acerca de' %}">Acerca De</a>
+          </li>
+          <li class="nav-item px-lg-4 {% if request.path == '/Pantalla_de_Contacto' %} active {% endif %}">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Pantalla de Contacto' %}">Contacto</a>
+          </li>
+          <!-- Solo visible para moderadores -->
+          {% if perms.app.add_items %}
+            <li class="nav-item px-lg-4 {% if request.path == '/PantallaCargaProducto' %} active {% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'Pantalla de Cargar Producto' %}">Agregar Productos</a>
+            </li>
+          {% endif %}
+          {% if perms.app.view_items %}
+            <li class="nav-item px-lg-4 {% if request.path == '/Listar' %} active {% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'Pantalla de Listar Productos' %}">Mostrar Productos</a>
+            </li>
+          {% endif %}
+          {% if perms.app.add_tag %}
+            <li class="nav-item px-lg-4">
+              <a href = "{% url 'Cargar_Categoria' %}" class="nav-link text-uppercase text-expanded"> Agregar Categoria </a>
+            </li>  
+          {% endif %}   
+          {% if perms.app.add_marca %}
+            <li class="nav-item px-lg-4">
+              <a href = "{% url 'CargaMarca' %}" class="nav-link text-uppercase text-expanded"> Agregar Marca </a>
+            </li>  
+          {% endif %}   
+          <!-- Solo visible para moderadores -->
+          <li class="nav-item px-lg-4 {% if request.path == '/categorias' %} active {% endif %}">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'categorias' %}"> Categorias</a>
+          <li>
+          <li class="nav-item px-lg-4 {% if request.path == '/marca' %} active {% endif %}">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'marcas' %}"> Marcas</a>
+          <li>
+          {% if user.is_authenticated %}
+          <li  class="nav-item px-lg-4">
+            <a href = "{% url 'logout' %}" class="nav-link text-uppercase text-expanded"> Cerrar Sesión</a>
+          </li>
+          <li class="nav-item px-lg-4">
+            <a href = "#" class="nav-link text-uppercase text-expanded"> {{ user.username }} </a>
+          </li>
+          {% else %} 
+            <li class="nav-item px-lg-4"> 
+              <a href="{% url 'login' %}" class="nav-link text-uppercase text-expanded">Iniciar Sesión</a>
+            </li>
+            <li class="nav-item px-lg-4"> 
+              <a href="{% url 'registro' %}" class="nav-link text-uppercase text-expanded">Registrarse</a>
+            </li>           
+          {% endif %} 
+          {% if user.is_staff%}
+          <li class="nav-item px-lg-4 {% if request.path == '/caja' %} active {% endif %}"> 
+            <a href="#" class="nav-link text-uppercase text-expanded"></a>
+          </li>
+          {% else %}
+            <li class="nav-item px-lg-4 {% if request.path == '/caja' %} active {% endif %}"> 
+              <a href="{% url 'caja' %}" class="nav-link text-uppercase text-expanded">Carro</a>
+            </li>
+          {% endif %} 
+        </ul>         
+      </div>
+        <form class="d-flex" action = "{% url 'buscar' %}" method = "POST">
+          {% csrf_token %} 
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name = "buscar">
+          <button class="btn btn-success" type="submit">Buscar</button>      
+        </form>
+      </div>
+  </nav>
+
+
+  
+<!-- mensajes -->
+{% if messages %}
+  {% for m in messages %}
+      <script>
+          Swal.fire({
+            "title":"Felicitaciones",
+            "text" : "{{m}}",
+            "icon" : "success",
+          })
+      </script>
+  {% endfor %}
+{% endif %}
+<!-- mensajes -->
+{% block content %}
+<!-- contenido cambiante-->
+
+
+
+<!-- contenido cambiante-->
+{% endblock  %}
+    <!-- Footer -->
+    <footer  class="footer  text-center py-5">
+        <div class="footer__section">
+          <p class="m-0 mbt1">&copy; Josete Store 2023</p>
+          <p class="m-0 mbt1"> Desarrollador web Jose Pedro Dominguez</p>
+        </div>
+    </footer>
+     <!--Bootstrap -->
+
+    <script src="{% static 'storeApp/vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'storeApp/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+</body>
+
+
+</html>

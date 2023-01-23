@@ -1,0 +1,418 @@
+body {
+  font-family: 'Poppins';
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  /*background-color: #522194;*/
+  color: #37235e;
+}
+
+h1 {
+
+  font-family: 'Poppins', cursive;
+  font-weight: bold;
+  text-align: center;
+
+
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  font-family: 'Poppins';
+  font-weight: bold;
+  text-align: center;
+
+
+}
+
+#tagUl {
+  margin-left: 0;
+  padding-right: 0;
+  list-style: none;
+
+}
+
+.tagLi {
+  display: block;
+  float: left;
+  text-decoration: none;
+
+
+}
+
+.clear {
+  display: block;
+  clear: both;
+}
+
+p {
+  line-height: 1.75;
+  font-family: 'Poppins';
+  color: #703D8D;
+  /*color: #e5b8f4;
+  color: #e8bec8;*/
+}
+
+figure {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+}
+
+.ui-pdp {
+  font-size: 16px;
+  margin: 0 auto;
+}
+
+.acercaDe {
+  line-height: 1.75;
+  font-family: 'Poppins';
+  color: #3c3368;
+}
+
+.text-faded {
+  color: rgba(7, 7, 7, 0.3);
+}
+
+.site-heading {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  text-transform: uppercase;
+  text-align: left;
+  line-height: 1;
+  font-family: 'Poppins', cursive;
+}
+
+.site-heading .site-heading-upper {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.site-heading .site-heading-lower {
+  font-size: 5rem;
+  font-weight: 100;
+  line-height: 4rem;
+  color: black;
+  font-family: 'Poppins', cursive;
+}
+
+.page-section {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.section-heading {
+  text-transform: uppercase;
+}
+
+.section-heading .section-heading-upper {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  padding-bottom: .5rem;
+
+}
+
+.section-heading .section-heading-lower {
+  display: block;
+  font-size: 3rem;
+  font-weight: 100;
+}
+
+
+.section-heading .section-heading-under {
+  display: block;
+  font-size: 1rem;
+  text-transform: none;
+  font-weight: 300;
+  margin-top: .5rem;
+}
+
+.bg-faded {
+  background-color: rgba(156, 63, 63, 0.933);
+}
+
+#mainNav {
+  background-color: #313290;
+  font-family: 'Poppins';
+}
+
+#mainNav .navbar-brand {
+  color: rgba(204, 51, 255, 0.624);
+  ;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+  color: #e5b8f4;
+  font-weight: 800;
+}
+
+#mainNav .navbar-nav .nav-item.active .nav-link {
+  color: #19bf118c;
+  text-decoration: underline;
+}
+
+@media (min-width: 992px) {
+  #mainNav .navbar-nav .nav-item .nav-link {
+    font-size: 0.9rem;
+  }
+
+  #mainNav .navbar-nav .nav-item .nav-link:hover {
+    color: #e5b8f4;
+    text-decoration: underline;
+  }
+
+  #mainNav .navbar-nav .nav-item.active .nav-link:hover {
+    color: #521a1a;
+    text-decoration: underline;
+  }
+}
+
+.btn-xl {
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.intro {
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .intro .intro-img {
+    width: 75%;
+    float: left;
+  }
+
+  .intro .intro-text {
+    left: 600;
+    width: 60%;
+    margin-top: 3rem;
+    background-color: #171f24;
+    color: rgb(8, 8, 8);
+    position: absolute;
+  }
+
+  .intro .intro-text .intro-button {
+    width: 100%;
+    left: 0;
+    position: absolute;
+    bottom: -2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .intro .intro-text {
+    width: 45%;
+  }
+}
+
+.cta {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+}
+
+.cta .cta-inner {
+  position: relative;
+  padding: 3rem;
+  margin: 0.5rem;
+  background-color: rgb(238, 222, 0);
+  color: rgb(0, 0, 0);
+}
+
+.cta .cta-inner:before {
+  border-radius: 0.5rem;
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  bottom: -0.5rem;
+  left: -0.5rem;
+  right: -0.5rem;
+  border: 0.25rem solid rgba(3, 3, 3, 0.85);
+}
+
+.cta .cta-innerv {
+  position: relative;
+  padding: 3rem;
+  margin: 0.5rem;
+  background-color: rgba(235, 1, 1, 0.85);
+}
+
+@media (min-width: 992px) {
+  .about-heading .about-heading-img {
+    position: relative;
+    z-index: 0;
+  }
+
+  .about-heading .about-heading-content {
+    margin-top: -5rem;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media (min-width: 992px) {
+  .product-item .product-item-title {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -3rem;
+  }
+
+  .product-item .product-item-img {
+    position: relative;
+    z-index: 0;
+    max-width: 60vw;
+
+    margin-left: 20px;
+  }
+
+  .product-item .product-item-description {
+    position: relative;
+    z-index: 1;
+    margin-top: -3rem;
+    max-width: 50vw;
+  }
+}
+
+
+
+@media (min-width: 992px) {
+  .list-hours {
+    width: 50%;
+    font-size: 1.1rem;
+  }
+}
+
+.address strong {
+  font-size: 1.2rem;
+}
+
+.footer {
+  width: 100%;
+  display: block;
+  left: 0px;
+  bottom: 0;
+  align-self: flex-end;
+  background-color: #313290;
+}
+
+
+@media screen and (max-width: 768px) {
+  .footer__section {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer__section {
+    width: 100%;
+  }
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.btn {
+  font-family: 'Poppins';
+  /*background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);*/
+
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.font-weight-light {
+  font-weight: 100 !important;
+}
+
+.mbtm {
+  padding-top: 5rem;
+}
+
+.mbt {
+  padding-top: 2rem;
+}
+
+.mbt1 {
+  padding-top: 1.25rem;
+}
+
+a.link {
+  color: rgba(0, 0, 0, 0.877);
+}
+
+a.link:hover {
+  text-decoration: none;
+  color: rgb(182, 72, 72);
+}
+
+.section-content {
+  font-family: 'Lora' !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 28px !important;
+}
+
+ul.errorlist {
+  padding-top: .75rem;
+  font-style: italic;
+  color: red;
+}
+
+.linksCategorias {
+
+  color: rgb(5, 4, 4) !important;
+
+  text-decoration: underline;
+
+}
+
+.linksCategorias:hover {
+
+  text-decoration: none;
+}
+
+/*li {
+  color: black
+}*/
+
+
+small {
+  color: black
+}
+
+.navbar-logo {
+  display: inline-block;
+  vertical-align: left;
+  width: 80px;
+}
+
+.navbar-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ConteinerImg {
+  width: 150px;
+  height: 150px;
+}

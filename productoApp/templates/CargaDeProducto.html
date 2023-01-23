@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content%}
+    {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+           Error al agregar el producto
+        </div>
+    {% endif %} 
+    </center>
+    <h1>Cargar Producto<h1>
+    </center>
+    {% load crispy_forms_tags %}
+
+        <center>
+            <div class="row">
+            
+               
+                    <div class="col-12 col-md-6 offset-md-3">
+                        <div class="mb-3">
+                                    
+                                <form action="" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {{ form | crispy}}
+                                    
+                                    <div class="d-flex justify-content-center">
+
+                                        <input class="btn btn-secondary" type="reset" value="cancelar">                        
+                                        &nbsp; 
+                                        <input class="btn btn-primary" type="submit" value="guardarItem">
+
+                                    </div>
+
+                                            
+                                </form>
+                                {{mensaje}}
+                        </div>
+
+                    <div>
+                
+
+            <div>
+        </center>
+
+{% endblock %}
