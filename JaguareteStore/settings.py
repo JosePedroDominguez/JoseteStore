@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-!06%$hdphojvjog3+4_5l1jf5vnjcdi-)m3u(rgd#*t6_r-(h_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 LOGIN_REDIRECT_URL = '/storeApp/'
 LOGOUT_REDIRECT_URL = '/storeApp/'

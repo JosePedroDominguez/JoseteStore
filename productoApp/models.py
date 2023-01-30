@@ -18,7 +18,7 @@ class Marca(models.Model):
 
 class Items(models.Model):
     name = models.CharField(max_length=50)
-    imagen = models.ImageField(upload_to="productos", null=True)
+    imagen = models.ImageField(upload_to="productos", null=False)
     tag = models.ForeignKey(Tag, on_delete=models.PROTECT)
     marca = models.ForeignKey(Marca, on_delete=models.PROTECT, null=True)
     description = models.TextField()

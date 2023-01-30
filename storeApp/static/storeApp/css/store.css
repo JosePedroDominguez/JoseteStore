@@ -3,8 +3,7 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  /*background-color: #522194;*/
-  color: #37235e;
+
 }
 
 h1 {
@@ -49,12 +48,25 @@ h6 {
   clear: both;
 }
 
+.CategoriasColumna {
+  column-count: 2;
+  column-width: 25rem;
+
+}
+
+
+
+.container-fluid {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+}
+
 p {
   line-height: 1.75;
   font-family: 'Poppins';
-  color: #703D8D;
-  /*color: #e5b8f4;
-  color: #e8bec8;*/
+
 }
 
 figure {
@@ -135,28 +147,21 @@ figure {
   margin-top: .5rem;
 }
 
-.bg-faded {
-  background-color: rgba(156, 63, 63, 0.933);
-}
+
 
 #mainNav {
-  background-color: #313290;
+
   font-family: 'Poppins';
 }
 
-#mainNav .navbar-brand {
-  color: rgba(204, 51, 255, 0.624);
-  ;
-}
-
 #mainNav .navbar-nav .nav-item .nav-link {
-  color: #e5b8f4;
+
   font-weight: 800;
 }
 
 #mainNav .navbar-nav .nav-item.active .nav-link {
-  color: #19bf118c;
-  text-decoration: underline;
+
+  text-decoration: none;
 }
 
 @media (min-width: 992px) {
@@ -165,13 +170,13 @@ figure {
   }
 
   #mainNav .navbar-nav .nav-item .nav-link:hover {
-    color: #e5b8f4;
-    text-decoration: underline;
+
+    text-decoration: none;
   }
 
   #mainNav .navbar-nav .nav-item.active .nav-link:hover {
-    color: #521a1a;
-    text-decoration: underline;
+
+    text-decoration: none;
   }
 }
 
@@ -246,7 +251,7 @@ figure {
   position: relative;
   padding: 3rem;
   margin: 0.5rem;
-  background-color: rgba(235, 1, 1, 0.85);
+
 }
 
 @media (min-width: 992px) {
@@ -304,7 +309,7 @@ figure {
   left: 0px;
   bottom: 0;
   align-self: flex-end;
-  background-color: #313290;
+
 }
 
 
@@ -328,7 +333,7 @@ figure {
 
 .btn {
   font-family: 'Poppins';
-  /*background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);*/
+
 
 }
 
